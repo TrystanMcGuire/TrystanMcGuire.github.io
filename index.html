@@ -7,9 +7,9 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            margin: 0;
+            margin: 1px;
             padding: 0;
-            background-color: #f0f0f0;
+            background-color: #EEEEEE;
         }
 
         header {
@@ -19,56 +19,87 @@
             text-align: center;
         }
 
-        nav {
-            background-color: #555;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
+        .link1 {
+            margin-left: 100px;
         }
 
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            padding: 10px;
-            margin: 0 10px;
+        .link2 {
+            margin-left: 20px;
         }
 
-        section {
-            padding: 20px;
+        .fineprint {
+            font-size: 8px;
+            display: inline-block;
         }
 
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+        .random-color {
+            display: inline-block;
+            margin-right: 5px; /* Adjust the margin-right to create space between words */
+        }
+       
+        marquee {
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        marquee a {
+            margin-right: 200px; /* Adjust the spacing between phrases */
+			color: mediumpurple
         }
     </style>
 </head>
 <body>
+	
+    <marquee behavior="scroll" direction="left" scrollamount="5">
+        <a>"If you want to make the world a better place, Take a look at yourself and make a change. Hooo" -BATMAN</a>
+        <a>"But we all got a chicken-duck-woman thing waiting for us." -BLR</a>
+        <a>"I launched that pug into space." -GIR</a>
+		<a>"This must be a special episode, he's yelling at his sister again." -Buford Van Stomm</a>
+        <!-- Add more <a> tags for additional phrases -->
+    </marquee>
 
-    <header>
-        <h1>Your Website</h1>
+<header>
+        <h1>Header</h1>
     </header>
 
-    <nav>
-        <a href="#">Home</a>
+    <h1 class="link1">
+        <a href="#index.html">Home</a> <br>
+    </h1>
+    <h2 class="link2">
         <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Contact</a>
-    </nav>
+    </h2>
+    <a href="#">Youtube.</a>
 
-    <section>
-        <h2>Welcome to Our Website!</h2>
-        <p>This is a simple website template. You can customize it to suit your needs.</p>
-    </section>
+<section>
+  <h2>Subheader</h2>
+<p class="fineprint" id="coloredText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget tempus nibh, et imperdiet tortor. Fusce urna velit, tincidunt a varius eget, sagittis molestie nibh. Etiam in turpis eu metus accumsan efficitur sit amet at arcu. Donec dapibus sit amet lorem at feugiat. Fusce interdum gravida nunc, quis fermentum lorem. In ut ligula non diam facilisis mattis vitae id erat. Maecenas suscipit justo vel nisl viverra accumsan. Cras eleifend quam at mauris semper, ut sagittis mi pharetra. Proin porta diam eget mauris tempor, a mollis sem eleifend. Maecenas dapibus pharetra euismod. Nullam fringilla leo ex, at laoreet felis gravida et. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus sed interdum ante.
+</p>
+</section>
 
-    <footer>
-        &copy; 2023 Your Website. All rights reserved.
-    </footer>
+<script>
+        function getRandomMutedColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            // Make the color more muted by adjusting brightness and saturation
+            color = color.replace(/^#/, '#80'); // Adjust the brightness (80 out of 100)
+            return color;
+        }
 
+        var wordsContainer = document.getElementById('coloredText');
+        var words = wordsContainer.textContent.split(' ');
+
+        wordsContainer.innerHTML = ''; // Clear the original content
+
+        words.forEach(function (word) {
+            var span = document.createElement('span');
+            span.textContent = word + ' ';
+            span.classList.add('random-color');
+            span.style.color = getRandomMutedColor();
+            wordsContainer.appendChild(span);
+        });
+    </script>
 </body>
 </html>
