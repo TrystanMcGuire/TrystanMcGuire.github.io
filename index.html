@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Jordans</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 1px;
+            padding: 0;
+            background-color: #EEEEEE;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .link1 {
+            margin-left: 100px;
+        }
+
+        .link2 {
+            margin-left: 20px;
+        }
+
+        .fineprint {
+            font-size: 8px;
+            display: inline-block;
+        }
+
+        .random-color {
+            display: inline-block;
+            margin-right: 5px; /* Adjust the margin-right to create space between words */
+        }
+       
+        marquee {
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        marquee a {
+            margin-right: 200px; /* Adjust the spacing between phrases */
+			color: mediumpurple
+        }
+    </style>
+</head>
+<body>
+	
+    <marquee behavior="scroll" direction="left" scrollamount="5">
+        <a>"If you want to make the world a better place, Take a look at yourself and make a change. Hooo" -BATMAN</a>
+        <a>"But we all got a chicken-duck-woman thing waiting for us." -BLR</a>
+        <a>"I launched that pug into space." -GIR</a>
+		<a>"This must be a special episode, he's yelling at his sister again." -Buford Van Stomm</a>
+        <!-- Add more <a> tags for additional phrases -->
+    </marquee>
+
+<header>
+        <h1>Header</h1>
+    </header>
+
+    <h1 class="link1">
+        <a href="#index.html">Home</a> <br>
+    </h1>
+    <h2 class="link2">
+        <a href="#">About</a>
+    </h2>
+    <a href="#">Youtube.</a>
+
+<section>
+  <h2>Subheader</h2>
+<p class="fineprint" id="coloredText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget tempus nibh, et imperdiet tortor. Fusce urna velit, tincidunt a varius eget, sagittis molestie nibh. Etiam in turpis eu metus accumsan efficitur sit amet at arcu. Donec dapibus sit amet lorem at feugiat. Fusce interdum gravida nunc, quis fermentum lorem. In ut ligula non diam facilisis mattis vitae id erat. Maecenas suscipit justo vel nisl viverra accumsan. Cras eleifend quam at mauris semper, ut sagittis mi pharetra. Proin porta diam eget mauris tempor, a mollis sem eleifend. Maecenas dapibus pharetra euismod. Nullam fringilla leo ex, at laoreet felis gravida et. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus sed interdum ante.
+</p>
+</section>
+
+<script>
+        function getRandomMutedColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            // Make the color more muted by adjusting brightness and saturation
+            color = color.replace(/^#/, '#80'); // Adjust the brightness (80 out of 100)
+            return color;
+        }
+
+        var wordsContainer = document.getElementById('coloredText');
+        var words = wordsContainer.textContent.split(' ');
+
+        wordsContainer.innerHTML = ''; // Clear the original content
+
+        words.forEach(function (word) {
+            var span = document.createElement('span');
+            span.textContent = word + ' ';
+            span.classList.add('random-color');
+            span.style.color = getRandomMutedColor();
+            wordsContainer.appendChild(span);
+        });
+    </script>
+</body>
+</html>
